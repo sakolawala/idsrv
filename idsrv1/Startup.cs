@@ -32,9 +32,11 @@ namespace idsrv1
 
             services.AddIdentityServer()
                 .AddTemporarySigningCredential()
-                .AddInMemoryApiResources(Config.GetApiResources())
-                .AddInMemoryClients(Config.GetClients())
-                .AddTestUsers(Config.GetUsers());
+                .AddInMemoryApiResources(idsrv4.Config.GetApiResources())
+                .AddInMemoryClients(idsrv4.Config.GetClients())
+                .AddTestUsers(idsrv4.Config.GetUsers())
+                .AddProfileService<idsrv4.MyProfileService>()
+                .AddResourceOwnerValidator<idsrv4.ResourceOwnerPasswordValidator>();
             
         }
 

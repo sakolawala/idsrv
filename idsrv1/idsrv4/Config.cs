@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace idsrv1
+namespace idsrv1.idsrv4
 {
     public class Config
     {
