@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using idsrv1.Custom;
 
 namespace idsrv1
 {
@@ -34,7 +35,10 @@ namespace idsrv1
                 .AddTemporarySigningCredential()
                 .AddInMemoryApiResources(Config.GetApiResources())
                 .AddInMemoryClients(Config.GetClients())
-                .AddTestUsers(Config.GetUsers());
+                .AddTestUsers(Config.GetUsers())
+                .AddProfileService<MyProfileService>()
+                .AddResourceOwnerValidator<ResourceOwnerPasswordValidator>();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
