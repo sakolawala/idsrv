@@ -32,7 +32,7 @@ namespace idsrv1.idsrv4
                                             new Secret("secret".Sha256())
                                         },
                                         // scopes that client has access to
-                                        AllowedScopes = { "api1" }
+                                        AllowedScopes = { "api1" }                                        
                                     },
                                     new Client
                                     {
@@ -43,7 +43,8 @@ namespace idsrv1.idsrv4
                                         {
                                             new Secret("secret".Sha256())
                                         },
-                                        AllowedScopes = { "api1" }
+                                        AllowedScopes = { "api1" },
+                                        AllowOfflineAccess = true
                                     }
                                 };
         }

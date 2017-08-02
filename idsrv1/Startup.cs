@@ -28,16 +28,16 @@ namespace idsrv1
         public void ConfigureServices(IServiceCollection services)
         {
             // Add framework services.
-            services.AddMvc();
+            services.AddMvc();           
 
             services.AddIdentityServer()
                 .AddTemporarySigningCredential()
                 .AddInMemoryApiResources(idsrv4.Config.GetApiResources())
-                .AddInMemoryClients(idsrv4.Config.GetClients())
-                .AddTestUsers(idsrv4.Config.GetUsers())
+                .AddInMemoryClients(idsrv4.Config.GetClients())               
                 .AddProfileService<idsrv4.MyProfileService>()
                 .AddResourceOwnerValidator<idsrv4.ResourceOwnerPasswordValidator>();
-            
+
+            services.AddSingleton<IdentityServer4.Stores.IPersistedGrantStore, idsrv4.MyPersistantGrant>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
