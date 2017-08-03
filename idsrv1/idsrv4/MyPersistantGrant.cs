@@ -29,6 +29,7 @@ namespace idsrv1.idsrv4
         {
             _repository[grant.Key] = grant;
             var grantJSON = JsonConvert.SerializeObject(grant);
+            grantJSON = grantJSON.Replace("\\\"", "\"");
             _logger.LogInformation("Grant permissisted as follow");
             _logger.LogInformation(grantJSON);
             return Task.FromResult(0);
